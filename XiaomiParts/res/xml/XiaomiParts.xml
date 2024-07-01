@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="gestures_category"
+        android:title="@string/gestures">
+
+        <Preference
+            android:key="screen_gestures"
+            android:summary="@string/gestures_dashboard_summary"
+            android:title="@string/screen_off_gestures" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="doze_category"
+        android:title="@string/ambient_display_title">
+
+        <Preference
+            android:key="doze"
+            android:summary="@string/ambient_display_gestures_summary"
+            android:title="@string/ambient_display_gestures_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="triggers_category"
+        android:title="Triggers">
+
+        <Preference
+            android:key="triggers"
+            android:title="Enable triggers view"
+            android:summary="You can also enable this view by enabling both triggers within 10 seconds. Long press save button to reset values" />
+
+        <SwitchPreference
+            android:key="trigger_sound"
+            android:summary="Play sound for trigger open/close"
+            android:title="Trigger Sound" />
+
+        <ListPreference
+            android:key="trigger_sound_type"
+            android:title="Trigger Sound Type"
+            android:entries="@array/trigger_sound_type_entries"
+            android:entryValues="@array/trigger_sound_type_values" />
+
+        <Preference
+            android:key="game"
+            android:summary="Add or Remove gaming apps"
+            android:title="Gaming apps" />
+
+         <Preference
+            android:key="custom_trigger"
+            android:summary="Customize trigger buttons for different purposes, only works in non-gaming apps"
+            android:title="@string/custom_trigger" />
+
+     </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="leds_category"
+        android:title="Leds">
+
+        <SwitchPreference
+            android:key="led_disco"
+            android:summary="Enable led light disco"
+            android:title="Led Disco" />
+
+
+        <SwitchPreference android:key="led_in_games"
+            android:summary="Play only in games"
+            android:title="Play in games"
+            android:dependency="led_disco" />
+
+        <SwitchPreference android:key="led_in_calls"
+            android:summary="Ply led light effect during calls"
+            android:title="Play during calls" />
+
+    </PreferenceCategory>
+<!--
+    <PreferenceCategory
+        android:key="vib_strength_category"
+        android:title="@string/vibrator_intensity_control">
+
+        <org.aospextended.device.vibration.VibratorStrengthPreference
+            android:key="vib_strength"
+            android:icon="@drawable/ic_vibrate" />
+    </PreferenceCategory>
+-->
+</PreferenceScreen>
