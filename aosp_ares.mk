@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 
-# TODO : Inherit from ares device makefile
+# Inherit from ares device makefile
 $(call inherit-product, device/xiaomi/ares/device.mk)
 
 # Inherit some source stuff
@@ -30,7 +30,7 @@ $(call inherit-product, vendor/aosp/common.mk)
 TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
 
-## Device identifier. This must come after all inclusions
+# Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := ares
 PRODUCT_NAME := aosp_ares
 PRODUCT_BRAND := POCO
