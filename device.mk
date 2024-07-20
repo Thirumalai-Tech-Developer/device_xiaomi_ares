@@ -11,6 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 PRODUCT_PACKAGES += \
+    bootctrl.default \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-impl.recovery \
     android.hardware.boot@1.2-service
@@ -36,8 +37,39 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0-impl \
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    audio.a2dp.default \
+    audio_policy.stub \
+    audio.r_submix.default \
+    audio.bluetooth.default \
+    audio.usb.default \
+    libalsautils \
+    libaudiofoundation.vendor \
+    libbluetooth_audio_session \
+    libtinycompress \
+    libaudio-resampler \
+    libaudiopolicyengineconfigurable
+
 # API levels
 PRODUCT_SHIPPING_API_LEVEL := 30
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.1.vendor
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
+
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.common@1.0.vendor \
+    android.hardware.camera.device@3.6.vendor \
+    android.hardware.camera.provider@2.6.vendor
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -48,6 +80,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
+
+# Neutral Networks
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3.vendor
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -60,59 +96,33 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 # Rootdir
 PRODUCT_PACKAGES += \
-    capture.sh \
-    capture_headsetmic.sh \
-    init.insmod.sh \
-    ir_test.sh \
-    playback.sh \
-    playback_headset.sh \
-    setup_backmic2headphone.sh \
-    setup_headsetmic2headphone.sh \
-    setup_headsetmic2rcv.sh \
-    setup_mainmic2headphone.sh \
-    setup_rcv2backmic.sh \
-    setup_rcv2mainmic.sh \
-    setup_rcv2topmic.sh \
-    setup_topmic2headphone.sh \
-    teardown_loopback.sh \
-    typec_capture_headset.sh \
-    typec_play_headset.sh \
-    xmirtest.sh \
-
-PRODUCT_PACKAGES += \
-    fstab.mt6893 \
-    factory_init.connectivity.common.rc \
-    factory_init.connectivity.rc \
-    factory_init.project.rc \
-    factory_init.rc \
-    init.aee.rc \
-    init.ago.rc \
-    init.cgroup.rc \
     init.connectivity.common.rc \
+    init.recovery.mt6893.rc \
     init.connectivity.rc \
-    init.mi_thermald.rc \
     init.modem.rc \
     init.mt6893.rc \
     init.mt6893.usb.rc \
+    init.mt6893.power.rc \
     init.project.rc \
     init.sensor_2_0.rc \
+    init.target.rc \
     init_conninfra.rc \
-    meta_init.connectivity.common.rc \
-    meta_init.connectivity.rc \
-    meta_init.modem.rc \
-    meta_init.project.rc \
-    meta_init.rc \
-    multi_init.rc \
-    init.recovery.hardware.rc \
-    init.recovery.mt6893.rc \
-    miui.factoryreset.rc \
+    fstab.mt6893 \
+    fstab.mt6893.ramdisk \
+    ueventd.mtk.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.mt6893:$(TARGET_VENDOR_RAMDISK_OUT)/first_stage_ramdisk/fstab.mt6893
 
+# Screen density
+PRODUCT_AAPT_CONFIG := xxxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \ 
+    hardware/mediatek \
+    hardware/xiaomi
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/missi/missi-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ares/ares-vendor.mk)
