@@ -11,18 +11,18 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Inherit from missi device
-$(call inherit-product, device/xiaomi/missi/device.mk)
+# Inherit from ares device
+$(call inherit-product, device/xiaomi/ares/device.mk)
 
-PRODUCT_DEVICE := missi
-PRODUCT_NAME := lineage_missi
-PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := missi
+PRODUCT_DEVICE := ares
+PRODUCT_NAME := lineage_ares
+PRODUCT_BRAND := POCO
+PRODUCT_MODEL := M2104K10I
 PRODUCT_MANUFACTURER := xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="missi_phoneext4_global-user 13 TP1A.220624.014 V816.0.2.0.TKJINXM release-keys"
+    PRIVATE_BUILD_DESC="aresin-user 13 SP1A.210812.016 V816.0.2.0.TKJINXM release-keys"
 
-BUILD_FINGERPRINT := Xiaomi/missi/missi:13/TP1A.220624.014/V816.0.2.0.TKJINXM:user/release-keys
+BUILD_FINGERPRINT := POCO/aresin/aresin:12/SP1A.210812.016/V816.0.2.0.TKJINXM:user/release-keys
