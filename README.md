@@ -1,1 +1,9 @@
-initial tree for POCO F3 GT
+# Android device tree for Xiaomi missi (missi)
+
+```
+#
+# Copyright (C) 2024 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+```

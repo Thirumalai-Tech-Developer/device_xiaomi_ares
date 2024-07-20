@@ -1,0 +1,10 @@
+on boot
+    stop console
+
+    # Change ownership and permission for vibrator
+    chown system system /sys/class/leds/vibrator/brightness
+    chmod 0660 /sys/class/leds/vibrator/brightness
+    chown system system /sys/class/leds/vibrator/loop
+    chmod 0660 /sys/class/leds/vibrator/loop
+    chown system system /sys/class/leds/vibrator/seq
+    chmod 0660 /sys/class/leds/vibrator/seq
