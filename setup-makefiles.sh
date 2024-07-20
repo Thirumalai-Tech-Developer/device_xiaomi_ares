@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=missi
+DEVICE=ares
 VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
