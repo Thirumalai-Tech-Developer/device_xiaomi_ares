@@ -1,4 +1,4 @@
-# Android device tree for Xiaomi missi (missi)
+# Android device tree for Xiaomi Ares (Ares)
 
 ```
 #
